@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./src/css/index.css">
-  <script src="./src/js/index.js" type="module" defer></script>
-  <title></title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/index.css" />
+    <script src="./src/js/index.js" type="module" defer></script>
+    <title>Math Parser</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="jumbotron"><h3>Expression Solver</h3></header>
+      <div class="form-group">
+        <textarea
+          id="input"
+          cols="100"
+          rows="5"
+          class="form-control"
+          placeholder="enter your math expression here"
+        ></textarea>
+        <hr />
+        <input type="button" value="Evaluate" id="evaluate" />
+      </div>
+      <div id="output">Nothing to evaluate</div>
+    </div>
+  </body>
 </html>
