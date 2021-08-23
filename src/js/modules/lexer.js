@@ -1,4 +1,5 @@
 import { Token } from "../../models/token.js";
+import { BuildTable } from '../modules/buildTable.js'
 
 const numerals = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 const letters =
@@ -11,9 +12,14 @@ export class Lexer {
   mode = this.modes['unknown']
   currentString = ""
 
+  constructor() {
+    this.tokens = []
+  }
   tokenize(inp) {
     let atoms = inp.split('')
-    for (let i = 0; i < atoms.length; i++) {
+    this.tokens = []
+    // debugger
+    for (let i = 0; i <= atoms.length; i++) {
       switch (this.mode) {
         case this.modes.unknown:
           if (atoms[i] === ' ') break
@@ -24,7 +30,7 @@ export class Lexer {
             this.mode = this.modes.literal
             this.currentString = atoms[i]
           } else if (letters.indexOf(atoms[i]) !== -1) {
-            mode = modes.identifier
+            this.mode = this.modes.identifier
             this.currentString = atoms[i]
           }
           break;
@@ -34,13 +40,33 @@ export class Lexer {
             this.currentString = ""
             this.mode = this.modes.unknown
             --i
-            console.log(this.tokens)
+            break
           } else {
             this.currentString += atoms[i]
+            break
+          }
+        case this.modes.identifier:
+          if (letters.indexOf(atoms[i]) === -1) {
+            this.tokens.push(new Token('identifier', this.currentString))
+            this.currentString = ''
+            this.mode = this.modes.unknown
+            --i
+            break
+          } else {
+            this.currentString += atoms[i]
+            break
           }
         default:
           break;
       }
-    };
+    }
+  }
+
+  displayTokens() {
+    document.querySelector('#output').innerHTML = ""
+
+    let table = new BuildTable(['Class', 'Value'], this.tokens)
+    console.log(table.build());
+    document.querySelector('#output').appendChild(table.build())
   }
 }

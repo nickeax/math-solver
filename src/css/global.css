@@ -21,3 +21,27 @@ body {
   width: 50vw;
   margin: auto;
 }
+
+table {
+  width: 800px;
+  border: 1px solid rgba(0, 0, 0, 0.075);
+}
+
+td,
+th {
+  font-size: 1.3rem;
+}
+
+th {
+  width: 100px;
+  background: #333;
+  color: aliceblue;
+}
+
+td {
+  text-align: center;
+}
+
+tr:nth-child(odd) {
+  background: rgba(25, 190, 3, 0.13);
+}
