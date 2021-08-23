@@ -10,5 +10,26 @@ textarea::placeholder {
 }
 
 textarea::placeholder {
+  text-align: center;
   color: rgba(25, 190, 3, 0.3);
+}
+
+.evalButton {
+  float: right;
+  border-style: none;
+  padding: 15px;
+  color: aliceblue;
+  background: rgba(25, 190, 3, 0.9);
+}
+
+.evalButton:hover {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.4)
+  );
+}
+
+.evalButton:active {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  box-shadow: 2px 2px 2px inset rgba(0, 0, 0, 0.4);
 }

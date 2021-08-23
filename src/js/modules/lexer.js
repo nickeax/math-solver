@@ -65,7 +65,7 @@ export class Lexer {
   displayTokens() {
     document.querySelector('#output').innerHTML = ""
 
-    let table = new BuildTable(['Class', 'Value'], this.tokens)
+    let table = new BuildTable(['Token Class', 'Token Value'], this.tokens)
     console.log(table.build());
     document.querySelector('#output').appendChild(table.build())
   }

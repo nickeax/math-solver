@@ -22,6 +22,12 @@ body {
   margin: auto;
 }
 
+h2 {
+  display: inline-block;
+  margin: 4rem 0;
+  font-size: 3rem;
+}
+
 table {
   width: 800px;
   border: 1px solid rgba(0, 0, 0, 0.075);
@@ -43,5 +49,9 @@ td {
 }
 
 tr:nth-child(odd) {
-  background: rgba(25, 190, 3, 0.13);
+  background: rgba(25, 190, 3, 0.041);
+}
+
+tr:nth-child(even) {
+  background: rgba(25, 190, 3, 0.061);
 }
